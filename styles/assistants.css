@@ -1,0 +1,432 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    font-family: Arial, sans-serif;
+    background-image: linear-gradient(#000000c3, #00000088), url(../images/assistants.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+.page-title {
+    z-index: -1;
+    position: absolute;
+    margin-top: -70px;
+    margin-left: 0px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    background-color: #00000065;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+#app {
+    margin-top: 50px;
+    flex-grow: 1;
+    width: 100%;
+    transition: transform 0.3s ease-in-out; 
+    z-index: 1;
+}
+#toggleSidebar{
+    margin-top: -8px;
+    margin-left: 20px;
+    border: solid 2px #0caeae;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px #0caeae;
+    padding: 10px;
+    color: #0caeae;
+    font-size: 12px;
+    transition: 0.2s ease-in-out;
+    animation: jiggle 0.75s 3 ease-in-out;
+}
+#toggleSidebar:hover{
+    background-color: #0caeae;
+    border-color: #fff;
+    color: #fff;
+}
+@keyframes jiggle{
+    50% {
+        transform: scale(120%);
+    }
+}
+.rotated{
+    transform: rotate(180deg);
+}
+.app-slide {
+    transform: translateX(200px); /* Slide the whole app to the right */
+}
+#sidebar {
+    width: 200px; /* Fixed width for sidebar */
+    position: fixed; /* Fixed to the left */
+    top: 0;
+    left: -200px; /* Initially hidden off-screen */
+    height: 100%; /* Full height */
+    background-color: #eee; /* Semi-transparent background */
+    padding-top: 20px; /* Space at the top */
+    transition: left 0.3s ease-in-out, width 0.3s ease-in-out; /* Smooth transition for slide-in effect */
+    z-index: 1000; /* Ensure it's above other content */
+    overflow-y: scroll; /* Adds vertical scroll when content is too long */
+    scrollbar-width:thin; /* Firefox */
+    scrollbar-color: #00000079 #f5f5f5; /* Thumb and track colors */
+}
+.user-info {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+    margin-top: -20px;
+    background-color: #fff;
+    border-bottom: #000 dashed;    
+}
+#editProfile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 15px;
+    background-color: #fff; /* White text */
+    padding: 5px;
+    font-size: 12px;
+    border: solid #0caeae;
+    border-radius: 8px;
+    text-decoration: none; /* Remove underline */
+    color: #065656;
+    transition: 0.2s ease-in-out;
+    margin: 0 auto;
+    margin-top: 15px;
+    cursor: pointer;
+}
+#editProfile:hover{
+    background-color: #0caeae; 
+    color: #fff;
+    box-shadow: 0 1px 3px #0a4a4a;
+}
+.user-info .userIcon {
+    background-color: #097878;
+    width: 87px;
+    height: 99px;
+    font-size: 100px;
+    text-align: center;
+    color: #fff;
+    border: solid #097878;
+    border-radius: 8px; /* For circular profile picture */
+    margin: 0px 50px;
+    margin-top: 20px;
+}
+.user-info .text {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0px;
+    margin-top: 7.5px;
+    font-size: 16px; /* Adjust font size as needed */
+    color: #333;
+}
+.user-info #fullName{
+    font-weight: bold;    
+    text-transform: uppercase;
+}
+.sidebar-link {
+    font-family: sans-serif;
+    display: block; /* Block display for links */
+    color: #097878; /* White text */
+    padding: 15px; /* Padding for clickable area */
+    text-decoration: none; /* Remove underline */
+    font-size: 14px; /* Font size */
+    transition: 0.2s ease-in-out; /* Transition for hover effect */
+    font-weight: bold;
+}
+.sidebar-link:hover {
+    background-color: #097878; 
+    color: #fff;
+}
+.sidebar-open {
+    left: 0;
+}
+.sideBarIcon{
+    width: 20px;
+    text-align: center;
+    position: static;
+    margin-right: 10px;
+    margin-left: -5px;
+}
+#activeTab{
+    background-color: #ccc;
+    color: #444;
+}
+footer {
+    position: sticky;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 100vn;
+    height: 15px;
+    left: 0;
+    bottom: 0;
+    margin-top: 10px; /* Add some space above the footer */
+    background: linear-gradient(to right, #097878, #0a4a4a); /* Gradient background */
+    color: #ffffff; /* White text color for contrast */
+    font-size: 10px; /* Text size */
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.3); /* Slight shadow for a lifted look */
+    z-index: 1000;
+}
+footer p {
+    padding: 0;
+    margin: 0;
+    line-height: 1.5; /* Better readability */
+}
+footer a {
+    color: #ffeb3b; /* Bright color for links */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+footer a:hover {
+    color: #ffd700; /* Link color on hover */
+    text-decoration: underline; /* Underline on hover */
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px); /* Adds blur effect */
+}
+.modal h2{
+    text-align: center;
+    border-bottom: dashed;
+    padding-bottom: 10px;
+}
+/* Modal Content Box */
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 75%;
+    height: 75vh;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.3s ease-out;
+    overflow-y: scroll; /* Adds vertical scroll when content is too long */
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #00000079 #f5f5f5;
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    float: right;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #333;
+}
+
+/* Slide-in Animation */
+@keyframes slideIn {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Form Styling */
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.modal-content input {
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.modal-content button {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #097878;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.modal-content button:hover {
+    background-color: #065656;
+}
+#assistantPopupContent{
+    margin-top:80px;
+    width: 70vw;
+    height: 60vh;
+}
+.popupText{
+    margin-top: -125px;
+}
+.photoInPopup{
+    border: solid 2px;
+    padding-top: 5px;
+    padding-bottom: 0.05px;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #ffffff33, #0a4a4a55);
+    position: relative;
+    font-size: 100px;
+    left: 78%;
+}
+#deleteButton{
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(255, 0, 0, 0.7);
+}
+#deleteButton:hover{
+    background-color: rgba(174, 0, 0, 0.9);
+}
+main{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 100vw;
+}
+.page-container {
+    margin: 0;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    padding: 0;
+    box-sizing: border-box;
+    width: 75%;
+    min-width: 50%;
+    gap: 20px;
+}
+.search-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px; /* Adjust width as needed */
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px; /* Space between icon and the left edge */
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888; /* Adjust color to fit the design */
+    font-size: 18px; /* Adjust icon size */
+}
+
+#searchInput {
+    width: 89%;
+    padding: 10px 10px 10px 35px; /* Extra left padding for icon */
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+#searchInput:focus {
+    border-color: #0caeae; /* Optional: add focus color */
+}
+
+#addAssistantButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 20px;
+    background-color: #ffffff8c; /* Semi-transparent background */
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 60%; /* Adjust button width */
+    height: 50px; /* Adjust button height */
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    backdrop-filter: blur(5px);
+    text-align: center;
+}
+
+#addAssistantButton i {
+    margin: 0;
+    margin-bottom: -12px;
+    font-size: 14px; /* Size the icon */
+}
+
+/* Hover effect for buttons */
+#addAssistantButton:hover {
+    background-color:#fff;
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Button container to keep buttons in row */
+.button-container {
+    display: flex;
+    gap: 60px; /* Space between buttons */
+    justify-content: center; /* Center-align buttons */
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
+.assistant-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    width: 100%;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #ffffff4a;
+    backdrop-filter: blur(5px);
+}
+.assistant-card {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    background-color: #eee;
+    box-shadow: 0px 2px 2px #0000006c;
+    border-radius: 20px;
+    padding: 5px;
+    width: 20%;
+    margin: 15px;
+    cursor: pointer;
+    flex: 1 1 200px; /* Flex grow and shrink with a base width */
+    transition: transform 0.2s;
+}
+.assistant-card:hover {
+    background-color: #fff;
+    transform: scale(1.05);
+}
+.assistant-card:hover #userIcon{
+    color: #097878;
+}
+@keyframes zoomInOut {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+@keyframes shadow{
+    0%, 100% {text-shadow: 0 0 0 #000000;}
+    50% {text-shadow: 5px 5px 5px #0a4a4a;}
+}
+.highlight-animation {
+    animation: zoomInOut 0.8s ease-in-out, shadow 0.8s ease-in-out;
+}
