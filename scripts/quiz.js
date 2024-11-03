@@ -16,7 +16,7 @@ const defaultQuestions = [
     }
 ];
 let questions = JSON.parse(localStorage.getItem("questions"));
-if(!questions[0]){
+if(!questions){
     localStorage.setItem("questions", JSON.stringify(defaultQuestions));
     questions = JSON.parse(localStorage.getItem("questions"));
 }
