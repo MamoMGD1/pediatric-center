@@ -134,6 +134,10 @@ html,body{
     transform: translate(-50%, -50%);
     z-index: 1000;
     padding: 20px;
+    padding-top: 0;
+    height: 75%;
+    overflow-y: auto;
+    scrollbar-width: thin;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
