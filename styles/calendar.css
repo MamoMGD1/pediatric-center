@@ -8,8 +8,8 @@ html,body{
 /* Calendar Container */
 .calendar-container {
     width: 50%;
-    min-width: 500px;
-    max-width: 800px;
+    min-width: 300px;
+    max-width: 600px;
     margin: auto;
     margin-top: 30px;
     margin-bottom: 27.5px;
