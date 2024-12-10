@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calendar</title>
+        <link rel="stylesheet" href="../styles/main.css"> <!-- CSS file for Announcements page -->
+        <link rel="stylesheet" href="../styles/calendar.css"> <!-- CSS file for Announcements page -->
+        <link rel="icon" href="../images/icon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <script src="https://kit.fontawesome.com/80b5e04a21.js" crossorigin="anonymous"></script>
+    </head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="user-info">
+            <div style="text-align: center; width: 100%;">
+                <i class="fa-solid fa-user-doctor userIcon" id="userIcon"></i>                
+            </div>
+            <div style="width: 100%; text-align: center; margin-bottom: 10px;">
+                <p id="fullName" class="text">Full Name</p>
+                <p id="organization" class="text">Organization</p>
+                <div id="editProfile">Edit Profile</div>
+            </div>
+        </div>
+        <a href="main.html" class="sidebar-link"><i class="fa-solid fa-home sideBarIcon"></i>Home</a>
+        <a href="announcements.html" class="sidebar-link"><i class="fa-solid fa-bullhorn sideBarIcon"></i>Announcements</a>
+        <a href="assistants.html" class="sidebar-link"><i class="fa-solid fa-hand-holding-medical sideBarIcon"></i>Assistants</a>
+        <a href="calendar.html" class="sidebar-link" id="activeTab"><i class="fa-solid fa-calendar-days sideBarIcon"></i>Calendar</a>
+        <a href="departments.html" class="sidebar-link"><i class="fa-solid fa-hospital sideBarIcon"></i>Departments</a>
+        <a href="emergency.html" class="sidebar-link"><i class="fa-solid fa-kit-medical sideBarIcon"></i>Emergency</a>
+        <a href="quiz.html" class="sidebar-link"><i class="fa-solid fa-clipboard-question sideBarIcon"></i>Quiz</a>
+        <a href="educators.html" class="sidebar-link"><i class="fa-solid fa-chalkboard-teacher sideBarIcon"></i>educators</a>
+        <a href="login.html" class="sidebar-link"><i class="fa-solid fa-right-from-bracket sideBarIcon"></i>Sign Out</a>
+    </div>
+    <div id="app">
+        <header>
+            <h1 class="page-title" style="width: 100%;">Calendar</h1>
+            <i class="fa-solid fa-angles-right" id="toggleSidebar"></i>
+        </header>
+        <main style="width: 100%;">
+                <div class="calendar-container">
+                    <!-- Calendar Header -->
+                    <div class="calendar-header" style="display: block;">
+                        <h2>Duty Calendar</h2>
+                        <div class="month-navigation">
+                            <button id="prevMonth" style="border-radius:30px 15px 15px 30px;"><i class="fa-solid fa-backward" style="margin-right: 5px;"></i> Prev</button>
+                            <span id="monthYearDisplay">October 2024</span>
+                            <button id="nextMonth" style="border-radius:15px 30px 30px 15px;">Next <i class="fa-solid fa-forward" style="margin-left: 5px;"></i></button>
+                        </div>
+                    </div>
+            
+                    <!-- Calendar Days (Sunday - Saturday) -->
+                    <div class="calendar-days">
+                        <div class="day-name">Sun</div>
+                        <div class="day-name">Mon</div>
+                        <div class="day-name">Tue</div>
+                        <div class="day-name">Wed</div>
+                        <div class="day-name">Thu</div>
+                        <div class="day-name">Fri</div>
+                        <div class="day-name">Sat</div>
+                    </div>
+            
+                    <!-- Calendar Dates -->
+                    <div class="calendar-grid" id="calendarGrid">
+                        <!-- Days will be generated dynamically here with JavaScript -->
+                    </div>
+            
+                    <!-- Modal for Viewing or Assigning Duties (Instructor Only) -->
+                    <div id="dutyModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <h3 id="modalTitle">Assign Duty</h3>
+                            <div id="dutyDetails">
+                                <!-- Filled dynamically for assistant details -->
+                            </div>
+                            <!-- Instructor-Only Section for Assigning Duty -->
+                            <div id="instructorControls" style="display: none;">
+                                <label for="assistantSelect">Choose Assistant:</label>
+                                <div id="assistantSelectContainer">
+                                    <input type="text" id="assistantSearch" placeholder="Search assistant..." oninput="filterAssistants()">
+                                    <select id="assistantSelect" size="5" style="width: 100%; overflow-y: auto; max-height: 150px;"></select>
+                                </div>
+
+                                <label for="departmentSelect">Choose Department:</label>
+                                <select id="departmentSelect">
+                                    <!-- Populate departments dynamically based on hospital -->
+                                    <option value="None">None</option>
+                                    <option value="Oncology">Oncology</option>
+                                    <option value="Emergency">Emergency</option>
+                                    <option value="Intensive Care">Intensive Care</option>
+                                    <!-- Add more departments as needed -->
+                                </select>
+            
+                                <button id="assignDuty">Assign Duty</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </main>
+        <footer>
+            <p>&copy; 2024 Our Hospital. All rights reserved.<a href="#"> Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </footer> 
+    </div>
+    <!-- Edit Profile Modal -->
+    <div id="editProfilePopup" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <h2>Edit Profile</h2>
+            <form id="editProfileForm">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName-edit" name="fullName" value="Full Name">
+                
+                <label for="organization">Organization:</label>
+                <input type="text" id="organization-edit" name="organization" value="Organization">
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email-edit" name="email" value="user@example.com">
+                
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone-edit" name="phone" value="+90 123 456 7890">
+                
+                <label for="username">Username:</label>
+                <input type="text" id="username-edit" name="username" value="Username">
+
+                <label for="password">Password:</label>
+                <input type="password" id="password-edit" name="password" value="***">
+
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+    <script src="../scripts/users.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/calendar.js"></script>
+</body>
+</html>

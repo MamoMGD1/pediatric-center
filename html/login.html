@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign In Page</title>
+        <link rel="stylesheet" href="../styles/login.css">
+        <link rel="icon" href="../images/icon.png" type="image/png">
+        <script src="https://kit.fontawesome.com/80b5e04a21.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="loginContainer">
+            <h2>Sign in to your account</h2>
+            <form action="/login" method="post" id="loginForm">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit" id="submit"><i class="fa-solid fa-arrow-right-to-bracket" style="margin-right: 5px;"></i> Sign in</button>
+            </form>
+            <p id="error"></p>
+            <a href="#" class="forgot-password" id="forgotPasswordLink">Forgot your password?</a>
+        </div>
+        <div id="forgotPasswordContainer" style="display: none;">
+            <a href="login.html">
+                <i class="fa-solid fa-arrow-left" id="backArrow"></i>
+            </a>
+            <h2>Reset Password</h2>
+            <input type="text" id="resetUsername" placeholder="Enter your username" required>
+            <button id="sendResetLink"><i class="fa-solid fa-envelope" style="margin-right: 5px"></i> Send Me Email</button>
+            <p id="resetMessage" style="margin-top: 25px;"></p>
+        </div>
+        <script src="../scripts/users.js"></script>
+        <script src="../scripts/login.js"></script> 
+
+    </body>
+</html>
