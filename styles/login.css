@@ -1,0 +1,163 @@
+html, body{
+    height: 90%;
+    margin: 0;
+    display: flex;
+    margin-top: 30px;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    background-image: linear-gradient(#000000c3, #00000088), url(../images/bg.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+.welcome-title{
+    position: absolute;
+    top: 0;
+    margin-top: 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 2em;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    background-color: #00000065;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.loginContainer, #forgotPasswordContainer{
+    width: 300px;
+    height: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0px 0px 10px #666;
+}
+h2{
+    margin-bottom: 20px;
+    color: #333;
+}
+.loginContainer input[type="text"],
+.loginContainer input[type="password"],
+#forgotPasswordContainer input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.loginContainer button,
+#forgotPasswordContainer button{
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #0caeae;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.loginContainer button:hover{
+    background-color: #0b9292;
+}
+#error{
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: red;
+}
+.loginContainer .forgot-password{
+    display: block;
+    margin-top: 15px;
+    color: #666;
+    font-size: 14px;
+    text-decoration: none;
+}
+.loginContainer .forgot-password:hover{
+    color: #333;
+}
+#backArrow{
+    border: solid black;
+    border-color: #0caeae;
+    border-radius: 50%;
+    padding: 2px;
+    color: #0caeae;
+    margin-left: -90%;
+    transition: 0.2s ease-in-out;
+}
+#backArrow:hover{
+    transform: scale(1.2);
+}
+#backArrow:active{
+    background-color: #0caeae;
+    color: #fff;
+}
+/* Responsive Design using @media Queries */
+@media (max-width: 768px) {
+    /* General Adjustments for Mobile Screens */
+    html, body {
+        margin-top: 0; /* Remove top margin */
+        flex-direction: column; /* Stack content vertically */
+        height: 100%; /* Full height for mobile */
+    }
+
+    /* Welcome Title */
+    .welcome-title {
+        font-size: 1.5em; /* Reduce font size */
+        padding-top: 20px;
+        padding-bottom: 20px;
+        height: auto; /* Allow dynamic height */
+    }
+
+    /* Login and Forgot Password Containers */
+    .loginContainer, #forgotPasswordContainer {
+        width: 90%; /* Adjust width for small screens */
+        max-width: 300px; /* Prevent being too wide */
+        height: auto; /* Dynamic height */
+        padding: 15px; /* Adjust padding */
+        box-shadow: 0px 0px 8px #444; /* Subtle shadow */
+    }
+
+    /* Input Fields */
+    .loginContainer input[type="text"],
+    .loginContainer input[type="password"],
+    #forgotPasswordContainer input[type="text"] {
+        font-size: 14px; /* Slightly smaller font size */
+        padding: 8px; /* Reduce padding */
+    }
+
+    /* Buttons */
+    .loginContainer button,
+    #forgotPasswordContainer button {
+        font-size: 14px; /* Adjust button font size */
+        padding: 8px; /* Adjust button padding */
+    }
+
+    /* Forgot Password Link */
+    .loginContainer .forgot-password {
+        font-size: 12px; /* Adjust link font size */
+    }
+
+    /* Back Arrow */
+    #backArrow {
+        margin-left: 0; /* Center align for smaller screens */
+        transform: scale(1); /* Remove scaling */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Further Adjustments for Very Small Screens */
+    .loginContainer, #forgotPasswordContainer {
+        width: 95%; /* Full width with small margin */
+        padding: 10px; /* Further reduce padding */
+    }
+
+    .welcome-title {
+        font-size: 1.2em; /* Smaller title font */
+    }
+}

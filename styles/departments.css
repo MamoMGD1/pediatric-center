@@ -1,0 +1,262 @@
+html,body{
+    background-image: linear-gradient(#000000c3, #00000088), url(../images/departments.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+.departments-container {
+    width: 75%;
+    font-family: Arial, sans-serif;
+    background: #f0f3f8be;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.departments-container h2,
+.charts-container h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Department Card Styles */
+.department-card {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin: 20px auto;
+    width: 50%;
+    min-width: 350px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+#emergency{
+    background-image: linear-gradient(#000000c3, #00000088), url(../images/emergency.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+#intensive{
+    background-image: linear-gradient(#000000c3, #00000088), url(../images/intensive.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+#hematology{
+    background-image: linear-gradient(#000000c3, #00000088), url(../images/hematology.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.department-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+.card-content {
+    padding: 20px;
+    color: #fff;
+}
+
+.card-content h3 {
+    border-bottom: 2px solid;
+    padding-bottom: 5px;
+    margin-top: 5px;
+    text-align: center;
+    gap: 10px;
+    font-size: 1.5em;
+}
+
+.card-content i {
+    color: #fff;
+}
+
+.card-content p {
+    font-size: 1em;
+    margin: 10px 0;
+}
+
+.details-btn {
+    background-color: #fff;
+    color: #6a89cc;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-top: 15px;
+}
+
+.details-btn:hover {
+    background-color: #6a89cc;
+    color: #fff;
+}
+
+/* Popup Modal Styles */
+#popupModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s;
+}
+#popupModal h3{
+    text-align: center;
+    border-bottom: dashed;
+    padding-bottom: 10px;
+    color: black;
+}
+.assistant-link {
+    color: inherit; /* Keeps the link color same as text */
+    text-decoration: none; /* Removes underline by default */
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.assistant-link:hover {
+    text-decoration: underline; /* Adds underline on hover */
+}
+
+#popupModal .modal-content {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20vh;
+    width: 75%;
+    height: 45%;
+    text-align: center;
+    animation: slideIn 0.4s forwards;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5em;
+    color: #666;
+    cursor: pointer;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-20px); }
+    to { transform: translateY(0); }
+}
+.charts-container {
+    width: 75%;
+    background-color: #f0f3f8be;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.chart-card {
+    margin: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    width: 45%;
+    text-align: center;
+}
+.chart-card h3{
+    font-size: 20px;
+}
+@keyframes zoomInOut {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+.highlight-animation {
+    animation: zoomInOut 0.8s ease-in-out;
+}
+
+/* Responsive Design for Departments Page */
+
+/* General Responsive Adjustments */
+@media (max-width: 768px) {
+    html, body {
+        background-position: top center; /* Adjust background for smaller screens */
+    }
+
+    .departments-container,
+    .charts-container {
+        width: 90%; /* Reduce width for smaller screens */
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 10px; /* Add some padding */
+    }
+
+    .department-card {
+        width: 80%; /* Adjust card width for smaller screens */
+        min-width: auto; /* Remove minimum width restriction */
+        margin: 15px auto; /* Adjust spacing between cards */
+    }
+
+    .card-content h3 {
+        font-size: 1.2em; /* Slightly smaller heading font */
+    }
+
+    .card-content p {
+        font-size: 0.9em; /* Reduce text size */
+    }
+
+    .details-btn {
+        font-size: 0.8em; /* Adjust button text size */
+        padding: 8px 15px; /* Adjust button padding */
+    }
+
+    #popupModal .modal-content {
+        width: 90%; /* Full width for modal on small screens */
+        max-width: none; /* Remove max-width */
+        margin-top: 15vh; /* Adjust vertical alignment */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Further Adjustments for Very Small Screens */
+    .department-card {
+        width: 95%; /* Full width for cards */
+    }
+
+    .charts-container {
+        flex-direction: column; /* Stack charts vertically */
+    }
+
+    .chart-card {
+        width: 90%; /* Full width for charts */
+        margin: 10px auto; /* Center charts */
+    }
+
+    .card-content h3 {
+        font-size: 1em; /* Smaller heading font */
+    }
+
+    .details-btn {
+        padding: 6px 10px; /* Compact button size */
+        font-size: 0.7em; /* Smaller text size */
+    }
+
+    #popupModal .modal-content {
+        padding: 15px; /* Reduce padding inside modal */
+        height: auto; /* Allow modal height to adjust dynamically */
+    }
+}

@@ -1,0 +1,201 @@
+html, body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url(../images/emergency.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+.emergency-container {
+    padding: 25px 20px;
+    border-radius: 12px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    width: 60%;
+    max-width: 600px;
+    margin: 40px auto 20px auto;
+    background-color: #ffffff22;
+    backdrop-filter: blur(7px);
+    transition: box-shadow 0.3s ease;
+}
+
+.emergency-container:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.emergency-container h2 {
+    text-align: center;
+    color: #ffffff;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 12px;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.alert-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.alert-form input,
+.alert-form textarea,
+.alert-form select,
+.alert-form button {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #b0b0b0;
+    border-radius: 6px;
+    background-color: #ffffffa1;
+}
+
+#emergencyStatus {
+    cursor: pointer;
+}
+
+.alert-form button {
+    margin-top: 15px;
+    background-color: #087d7d;
+    color: #ffffff;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+.alert-form button:hover {
+    background-color: #076464;
+}
+
+.alert-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.alert-item {
+    padding: 5px;
+    margin-bottom: 12px;
+    border-radius: 5px;
+    background-color: #ffffffc5;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.alert-item p {
+    margin: 5px 0;
+    color: #333333;
+    font-size: 14px;
+}
+
+.edit-btn,
+.delete-btn {
+    align-self: flex-end;
+    margin-top: 5px;
+    padding: 8px 16px;
+    border: 2px solid #087d7d;
+    border-radius: 6px;
+    background: none;
+    color: #087d7d;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+    background-color: #087d7d;
+    color: #ffffff;
+}
+.passiveButton {
+    align-self: flex-end;
+    margin-top: 5px;
+    padding: 8px 16px;
+    background-color: #d3d3d3; /* Light gray to indicate inactive state */
+    color: #7a7a7a; /* Darker gray text */
+    font-weight: bold;
+    border: 1px solid #b0b0b0; /* Light border color */
+    border-radius: 6px;
+    cursor: not-allowed; /* Not-allowed cursor to indicate non-clickable */
+    opacity: 0.7; /* Slightly transparent */
+}
+/* Responsive Styles */
+@media (max-width: 768px) {
+    html, body {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url(../images/emergency.jpg);
+        background-size: cover;
+    }
+
+    .emergency-container {
+        width: 80%;
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .emergency-container h2 {
+        font-size: 1.6rem;
+    }
+
+    .alert-form input,
+    .alert-form textarea,
+    .alert-form select,
+    .alert-form button {
+        font-size: 0.9rem;
+    }
+
+    .alert-item {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+
+    .passiveButton {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .emergency-container {
+        width: 80%;
+        padding: 15px;
+        height: fit-content;
+    }
+    html,body{
+        height: 100vh;
+    }
+    main{
+        height: 90%;
+    }
+    .emergency-container h2 {
+        font-size: 1.4rem;
+    }
+
+    .alert-form input,
+    .alert-form textarea,
+    .alert-form select,
+    .alert-form button {
+        font-size: 0.85rem;
+    }
+
+    .alert-item {
+        padding: 10px;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        padding: 5px 10px;
+        font-size: 0.85rem;
+    }
+
+    .passiveButton {
+        padding: 5px 10px;
+        font-size: 0.85rem;
+    }
+}

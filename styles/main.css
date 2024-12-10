@@ -1,0 +1,358 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    font-family: Arial, sans-serif;
+    background-image: linear-gradient(#25252566, #25252566), url(../images/mainBg.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+.page-container {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Header, main content, footer */
+    height: 100vh; /* Full viewport height */
+}
+.page-title {
+    z-index: -1;
+    position: absolute;
+    margin-top: -70px;
+    margin-left: 0px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    background-color: #00000065;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+#app {
+    margin-top: 50px;
+    flex-grow: 1;
+    width: 100%;
+    transition: transform 0.3s ease-in-out; 
+    z-index: 1;
+}
+#toggleSidebar{
+    margin-top: -8px;
+    margin-left: 20px;
+    border: solid 2px #0caeae;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px #0caeae;
+    padding: 10px;
+    color: #0caeae;
+    font-size: 12px;
+    transition: 0.2s ease-in-out;
+    animation: jiggle 0.75s 3 ease-in-out;
+}
+#toggleSidebar:hover{
+    background-color: #0caeae;
+    border-color: #fff;
+    color: #fff;
+}
+@keyframes jiggle{
+    50% {
+        transform: scale(120%);
+    }
+}
+.rotated{
+    transform: rotate(180deg);
+}
+.app-slide {
+    transform: translateX(200px); /* Slide the whole app to the right */
+}
+#sidebar {
+    width: 200px; /* Fixed width for sidebar */
+    position: fixed; /* Fixed to the left */
+    top: 0;
+    left: -200px; /* Initially hidden off-screen */
+    height: 100%; /* Full height */
+    background-color: #eee; /* Semi-transparent background */
+    padding-top: 20px; /* Space at the top */
+    transition: left 0.3s ease-in-out, width 0.3s ease-in-out; /* Smooth transition for slide-in effect */
+    z-index: 1000; /* Ensure it's above other content */
+    overflow-y: scroll; /* Adds vertical scroll when content is too long */
+    scrollbar-width:thin; /* Firefox */
+    scrollbar-color: #00000079 #f5f5f5; /* Thumb and track colors */
+}
+.user-info {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+    margin-top: -20px;
+    background-color: #fff;
+    border-bottom: #000 dashed;    
+}
+#editProfile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 15px;
+    background-color: #fff; /* White text */
+    padding: 5px;
+    font-size: 12px;
+    border: solid #0caeae;
+    border-radius: 8px;
+    text-decoration: none; /* Remove underline */
+    color: #065656;
+    transition: 0.2s ease-in-out;
+    margin: 0 auto;
+    margin-top: 15px;
+    cursor: pointer;
+}
+#editProfile:hover{
+    background-color: #0caeae; 
+    color: #fff;
+    box-shadow: 0 1px 3px #0a4a4a;
+}
+.user-info .userIcon {
+    background-color: #097878;
+    width: 87px;
+    height: 99px;
+    font-size: 100px;
+    text-align: center;
+    color: #fff;
+    border: solid #097878;
+    border-radius: 8px; /* For circular profile picture */
+    margin: 0px 50px;
+    margin-top: 20px;
+}
+.user-info .text {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0px;
+    margin-top: 7.5px;
+    font-size: 16px; /* Adjust font size as needed */
+    color: #333;
+}
+.user-info #fullName{
+    font-weight: bold;    
+    text-transform: uppercase;
+}
+.sidebar-link {
+    font-family: sans-serif;
+    display: block; /* Block display for links */
+    color: #097878; /* White text */
+    padding: 15px; /* Padding for clickable area */
+    text-decoration: none; /* Remove underline */
+    font-size: 14px; /* Font size */
+    transition: 0.2s ease-in-out; /* Transition for hover effect */
+    font-weight: bold;
+}
+.sidebar-link:hover {
+    background-color: #097878; 
+    color: #fff;
+}
+.sidebar-open {
+    left: 0;
+}
+.sideBarIcon{
+    width: 20px;
+    text-align: center;
+    position: static;
+    margin-right: 10px;
+    margin-left: -5px;
+}
+#activeTab{
+    background-color: #ccc;
+    color: #444;
+}
+footer {
+    position: sticky;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 100vn;
+    height: 15px;
+    left: 0;
+    bottom: 0;
+    margin-top: 10px; /* Add some space above the footer */
+    background: linear-gradient(to right, #097878, #0a4a4a); /* Gradient background */
+    color: #ffffff; /* White text color for contrast */
+    font-size: 10px; /* Text size */
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.3); /* Slight shadow for a lifted look */
+    z-index: 1000;
+}
+footer p {
+    padding: 0;
+    margin: 0;
+    line-height: 1.5; /* Better readability */
+}
+footer a {
+    color: #ffeb3b; /* Bright color for links */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+footer a:hover {
+    color: #ffd700; /* Link color on hover */
+    text-decoration: underline; /* Underline on hover */
+}
+main{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 90vw;
+}
+#editProfilePopup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px); /* Adds blur effect */
+}
+#editProfilePopup h2{
+    text-align: center;
+    border-bottom: dashed;
+    padding-bottom: 10px;
+    color: black;
+}
+/* Modal Content Box */
+#editProfilePopup .modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 75%;
+    height: 75vh;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.3s ease-out;
+    overflow-y: scroll; /* Adds vertical scroll when content is too long */
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #00000079 #f5f5f5;
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    float: right;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #333;
+}
+
+/* Slide-in Animation */
+@keyframes slideIn {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Form Styling */
+#editProfilePopup .modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+#editProfilePopup .modal-content label {
+    margin-top: 10px;
+    color: black;
+    font-weight: bold;
+}
+
+#editProfilePopup .modal-content input {
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+#editProfilePopup .modal-content button {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #097878;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modal-content button:hover {
+    background-color: #065656;
+}
+/* Responsive Design using @media Queries */
+@media (max-width: 768px) {
+    /* Background Adjustments */
+    html, body {
+        background-size: cover; /* Scale background */
+        background-attachment: scroll; /* Remove fixed attachment */
+    }
+
+    /* Sidebar Adjustments */
+    #sidebar {
+        left: -100%; /* Hidden off-screen */
+    }
+    .sidebar-open {
+        left: 0; /* Fully slide in */
+    }
+
+    /* Page Title Adjustments */
+    .page-title {
+        font-size: 1.5em; /* Smaller font */
+        padding: 20px 10px; /* Adjust padding */
+        margin-top: -50px; /* Less margin */
+    }
+
+    /* User Info Section */
+    .user-info {
+        flex-direction: column; /* Stack vertically */
+        align-items: center; /* Center content */
+    }
+    .user-info .userIcon {
+        margin: 10px 0; /* Center spacing */
+    }
+    .user-info .text {
+        text-align: center; /* Center text */
+    }
+
+    /* Footer Adjustments */
+    footer {
+        height: 30px; /* Reduced height */
+        font-size: 8px; /* Smaller font size */
+    }
+
+    /* Modal Adjustments */
+    #editProfilePopup .modal-content {
+        width: 50%; /* Fit within screen width */
+        position: relative;
+        left: -15%;
+        top: -10%;
+        height: auto; /* Adjust height */
+        max-width: none; /* Remove max-width restriction */
+    }
+    #editProfilePopup .modal-content input,
+    #editProfilePopup .modal-content button {
+        width: 100%; /* Full-width fields and buttons */
+    }
+
+    /* Main Content Adjustments */
+    main {
+        width: 100%; /* Full width */
+        padding: 10px; /* Add padding for better spacing */
+    }
+
+    /* General Grid Layout */
+    .page-container {
+        grid-template-rows: auto 1fr; /* Adjust grid for smaller screens */
+    }
+}
