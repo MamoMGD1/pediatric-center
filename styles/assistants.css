@@ -442,4 +442,8 @@ main{
         top: -10%;
         left: -15%;
     }
+    .photoInPopup{
+        top: 300px;
+        left: 105px;
+    }
 }
